@@ -1,20 +1,15 @@
-s = 'azcbobobegghakl'
+current = s[0]
 
-# create a list to save the substrings
-words = []
-
-# create a variable to save each word through the process
-word = s[0]
-
-# loop through the string to compare each later
+substrings = []
+# Write a program that prints the longest substring of s in which the letters occur in alphabetical order.
 for i in range(len(s) - 1):
     if s[i + 1] >= s[i]:
-        word += s[i + 1]
+        current += s[i + 1]
     else:
-        words.append(word)
-        word = s[i + 1]
-words.append(word)
+        substrings.append(current)
+        current = s[i + 1]
 
-# from the list find the longest word and return it
-longest = max(words, key=len)
-print("Longest substring in alphabetical order is:", longest)
+longest = max(substrings, key=len)
+
+# In the case of ties, print the first substring
+print("Longest substring in alphabetical order is: " + longest)
